@@ -3,6 +3,7 @@ import { setCookie, parseCookies } from "nookies";
 import Router from "next/router";
 
 import { recoverUserInformation, signInRequest } from "../services/auth";
+import { api } from "../services/api";
 
 type User = {
   name: string;
@@ -47,6 +48,8 @@ export const AuthProvider = ({ children }) => {
     setCookie(undefined, 'nextauth.token', token, {
       maxAge: 60 * 60 * 1 // 1 hour
     })
+
+    api.defaults.headers['Authorization'] = `Bearer ${token}`
 
     setUser(user)
 
