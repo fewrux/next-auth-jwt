@@ -7,15 +7,9 @@ type SignInRequest = {
 }
 
 export const signInRequest = async (data: SignInRequest) => {
-  return {
-    token: uuid(),
-    user: {
-      name: 'John Doe',
-      email: 'john@doe.com',
-      avatar_url: 'https://github.com/felipecrubio.png'
-    }
-  }
-
+  // const response = await axios.post('/api/auth', {
+  //   ...data,
+  // }
 
   // const url = 'https://cnctesteapl.azurewebsites.net/API/Acesso/Login'
 
@@ -24,6 +18,15 @@ export const signInRequest = async (data: SignInRequest) => {
   //   "Senha": "teste"
   // })
   //   .then(response => console.log(response))
+
+  return {
+    token: uuid(),
+    user: {
+      name: 'John Doe',
+      email: 'john@doe.com',
+      avatar_url: 'https://github.com/felipecrubio.png'
+    }
+  }
 }
 
 export const recoverUserInformation = async () => {
